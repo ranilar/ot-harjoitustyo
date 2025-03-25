@@ -5,5 +5,9 @@
 
 
 
+## Vaatimusmäärittely
+### https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md
+
 ## Laskarit
 ### https://github.com/ranilar/ot-harjoitustyo/tree/main/laskarit
+
