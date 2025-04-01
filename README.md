@@ -5,12 +5,8 @@
 
 
 
-## Vaatimusmäärittely
+### Vaatimusmäärittely
 ### https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md
 
-## Työaikakirjanpito
+### Työaikakirjanpito
 ### https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md
-
-## Laskarit
-### https://github.com/ranilar/ot-harjoitustyo/tree/main/laskarit
-
