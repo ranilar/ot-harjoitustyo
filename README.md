@@ -1,7 +1,5 @@
 # Ohjelmistotekniikka harjoitustyö
 
-## Tähän repositorioon tulee HY:n ohjelmistotekniikan kurssin harjoitustyö.
-
 ## Asennusohjeet
 
 1. Asenna riippuvuudet
@@ -35,4 +33,6 @@ poetry run invoke coverage-report
 Vaatimusmäärittely:  https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md
 
 Työaikakirjanpito: https://github.com/ranilar/ot-harjoitustyo/blob/main/ilaris-openings/dokumentaatio/tuntikirjanpito.md
+
+Changelog: https://github.com/ranilar/ot-harjoitustyo/blob/main/ilaris-openings/dokumentaatio/changelog.md
 
