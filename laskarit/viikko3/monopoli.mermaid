@@ -1,0 +1,21 @@
+## Monopoli
+
+```mermaid
+classDiagram
+    Monopolipeli "1" -- "2" Noppa
+    Monopolipeli "1" -- "1" Pelilauta
+    Pelilauta "1" -- "40" Ruutu
+    Ruutu <|-- Aloitusruutu
+    Ruutu <|-- Vankila
+    Ruutu <|-- SattumaYhteismaa
+    Ruutu <|-- Asema
+    Ruutu <|-- Laitos
+    Ruutu <|-- Katu
+    SattumaYhteismaa "1" -- "" Kortti
+    Katu "1" -- "0..4" Talot
+    Katu "1" -- "0..1" Hotelli
+    Katu "1" -- "0..1" Pelaaja : omistaa
+    Pelaaja "2..8" -- "1" Monopolipeli
+    Pelinappula "1" -- "1" Pelaaja
+    Pelinappula "0..8" -- "1" Ruutu
+```
