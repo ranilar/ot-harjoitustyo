@@ -9,4 +9,4 @@
 ### https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md
 
 ### Työaikakirjanpito
-### https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md
+### https://github.com/ranilar/ot-harjoitustyo/blob/main/ilaris-openings/dokumentaatio/tuntikirjanpito.md
