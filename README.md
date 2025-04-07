@@ -2,13 +2,19 @@
 
 ## Asennusohjeet
 
-1. Asenna riippuvuudet
+1. Kloonaa repositorio koneellesi ja navigoi sen hakemistoon "ilaris-openings"
+```bash
+git clone git@github.com:ranilar/ot-harjoitustyo.git
+```
+
+3. Asenna riippuvuudet
 ```bash
 poetry install
 ```
-2. Käynnistä sovellus
+
+3. Käynnistä sovellus
 ```bash
-poetry install
+poetry run invoke start
 ```
 
 ## Komennot
@@ -30,9 +36,7 @@ poetry run invoke coverage-report
 
 ## Dokumentaatio
 
-Vaatimusmäärittely:  https://github.com/ranilar/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md
-
-Työaikakirjanpito: https://github.com/ranilar/ot-harjoitustyo/blob/main/ilaris-openings/dokumentaatio/tuntikirjanpito.md
-
-Changelog: https://github.com/ranilar/ot-harjoitustyo/blob/main/ilaris-openings/dokumentaatio/changelog.md
+-  [Vaatimusmäärittely](ilaris-openings/dokumentaatio/vaatimusmaarittely.md)
+-  [Työaikakirjanpito](ilaris-openings/dokumentaatio/tuntikirjanpito.md)
+-  [Changelog](ilaris-openings/dokumentaatio/changelog.md)
 
