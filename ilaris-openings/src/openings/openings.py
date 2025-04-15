@@ -1,6 +1,4 @@
 import chess.pgn
-import io
-import os
 
 class Opening:
     def __init__(self, name, game, comments):
