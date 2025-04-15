@@ -47,6 +47,8 @@ class PracticeOpening(tk.Frame):
             self.move_index += 1
 
     def previous_move(self):
+        if self.move_index > 0:
+            self.move_index -= 1
             self.board.pop()
             self.update_board_image()
 
@@ -55,8 +57,6 @@ class PracticeOpening(tk.Frame):
                 self.comment_label.config(text=f"{comment}")
             else:
                 self.comment_label.config(text="")
-
-            self.move_index -= 1
         
     def back_to_openings(self):
         self._show_choose_opening()
