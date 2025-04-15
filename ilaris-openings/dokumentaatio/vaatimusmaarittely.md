@@ -16,12 +16,15 @@ Ensimmäinen on päävalikko, jossa voi kirjautua sisään tai valita pelin. Toi
 
 ## Perusversion tarjoama toiminnallisuus
 
+### Tulevat toiminnallisuudet
 - Käyttäjä voi luoda järjestelmään käyttäjätunuksen
   - Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 5 merkkiä
 - Käyttäjä voi kirjautua järjestelmään
   - Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus ja salasana kirjautumislomakkeelle
   - Jos käyttäjää ei olemassa, tai salasana ei täsmää, ilmoittaa järjestelmä tästä
-- Käyttäjä voi valita mitä avausta haluaa harjoitella
+
+### Tehdyt toiminnallisuudet  
+- Käyttäjä voi valita mitä avausta haluaa harjoitella 
   - Avauksia on ainakin viisi, joista voi valita
 
 
