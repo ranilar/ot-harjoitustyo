@@ -7,5 +7,6 @@
 [Result "*"]
 [Opening "Queen's Gambit"]
 [Link "https://www.chess.com/openings/Queens-Gambit"]
+[Tip1 Take control of the center]
 
-1. d4 d5 2. c4 *
+1. d4 { In the Queen's Gambit, white starts off by pushing the queen's pawn to the center} d5 {Which black responds to with d5} 2. c4 {This is the core of the opening. Black can respond by taking or defending, both leading to different variations }*
