@@ -39,4 +39,5 @@ poetry run invoke coverage-report
 -  [Vaatimusmäärittely](ilaris-openings/dokumentaatio/vaatimusmaarittely.md)
 -  [Työaikakirjanpito](ilaris-openings/dokumentaatio/tuntikirjanpito.md)
 -  [Changelog](ilaris-openings/dokumentaatio/changelog.md)
+-  [Release] (https://github.com/ranilar/ot-harjoitustyo/releases/tag/viikko5)
 
