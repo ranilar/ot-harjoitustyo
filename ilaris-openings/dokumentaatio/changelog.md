@@ -7,3 +7,6 @@
 - Käyttäjä voi harjoitella viidellä eri avauksella.
 - Käyttäjä voi vaihdella valikoiden välillä.
 - Lisätty avauksien toiminnalisuudelle testi.
+
+## viikko 6
+- Refaktoroitu koodia
