@@ -1,13 +1,16 @@
-import chess.pgn
+import chess.svg, cairosvg, io
+from entities.openings import Opening
+from PIL import Image, ImageTk
 
-class Opening:
-    def __init__(self, name, game, comments):
-        self.name = name
-        self.game = game
-        self.comments = comments
+class BoardService:
+    def __init__(self):
+        self,
 
-    def get_comment(self, move_index):
-        return self.comments.get(move_index)
+    def board_to_photoimage(board, size=400):
+        svg_data = chess.svg.board(board, size=size)
+        png_data = cairosvg.svg2png(bytestring=svg_data.encode('utf-8'))
+        image = Image.open(io.BytesIO(png_data))
+        return ImageTk.PhotoImage(image)
 
     def load_opening_from_pgn(file_path):
         with open(file_path) as f:

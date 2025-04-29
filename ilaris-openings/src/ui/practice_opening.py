@@ -1,15 +1,14 @@
 import tkinter as tk
-from PIL import Image, ImageTk
-import chess, chess.svg, cairosvg, io, os
+from services.practice_service import PracticeService
+from services.board_service import BoardService
 
 class PracticeOpening(tk.Frame):
     def __init__(self, master, opening, _show_choose_opening):
         super().__init__(master)
-        self.opening = opening
-        self.moves = list(opening.game.mainline_moves())
-        self.move_index = 0
-        self.board = chess.Board()
+        self.practice_service = PracticeService(opening)
+        self.board_service = BoardService
         self._show_choose_opening = _show_choose_opening
+
 
         tk.Label(self, text=opening.name, font=("Garet", 20)).pack(pady=10)
 
@@ -20,43 +19,23 @@ class PracticeOpening(tk.Frame):
         self.comment_label.pack(pady=10)
 
         tk.Button(self, text="Next Move", command=self.next_move).pack(pady=10)
-        tk.Button(self, text="Previous Move", command=self.previous_move).pack(pady=10)
-        tk.Button(self, text="Back To Openings", command=self.back_to_openings).pack(pady=10)
+        tk.Button(self, text="Previous Move", command=self.prev_move).pack(pady=10)
+        tk.Button(self, text="Back To Openings", command=self._show_choose_opening).pack(pady=10)
+        
+        self.update_board()
 
-        self.update_board_image()
+    def update_board(self):
+        img = self.board_service.board_to_photoimage(self.practice_service.board)
+        self.board_canvas.configure(image=img)
+        self.board_canvas.image = img
 
-    def update_board_image(self):
-        svg_data = chess.svg.board(self.board, size=400)
-        png_data = cairosvg.svg2png(bytestring=svg_data.encode('utf-8'))
-        image = Image.open(io.BytesIO(png_data))
-        self.board_img = ImageTk.PhotoImage(image)
-        self.board_canvas.configure(image=self.board_img)
+        comment = self.practice_service.get_comment()
+        self.comment_label.config(text=comment or "")
 
     def next_move(self):
-        if self.move_index < len(self.moves) + 1:
-            move = self.moves[self.move_index]
-            self.board.push(move)
-            self.update_board_image()
+        self.practice_service.next_move()
+        self.update_board()
 
-            comment = self.opening.get_comment(self.move_index)
-            if comment:
-                self.comment_label.config(text=f"{comment}")
-            else:
-                self.comment_label.config(text="")
-
-            self.move_index += 1
-
-    def previous_move(self):
-        if self.move_index > 0:
-            self.move_index -= 1
-            self.board.pop()
-            self.update_board_image()
-
-            comment = self.opening.get_comment(self.move_index)
-            if comment:
-                self.comment_label.config(text=f"{comment}")
-            else:
-                self.comment_label.config(text="")
-        
-    def back_to_openings(self):
-        self._show_choose_opening()
+    def prev_move(self):
+        self.practice_service.previous_move()
+        self.update_board()
