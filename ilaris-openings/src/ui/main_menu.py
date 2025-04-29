@@ -3,7 +3,19 @@ from PIL import Image, ImageTk
 import os
 
 class Menu(tk.Frame):
+    """
+    The main menu UI for the Chess Opening Trainer.
+    Displays a background image and a button to start training.
+    """
+
     def __init__(self, master, choose_opening):
+        """
+        Initializes the Menu frame.
+
+        Args:
+            The parent Tkinter container.
+            Function to call when 'Start Training' is clicked.
+        """
         super().__init__(master)
 
         self._choose_opening = choose_opening

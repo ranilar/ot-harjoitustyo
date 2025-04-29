@@ -3,12 +3,37 @@ from services.practice_service import PracticeService
 from services.board_service import BoardService
 
 class PracticeOpening(tk.Frame):
+    """
+    A class to represent the practice opening frame in a Tkinter application.
+
+    Args:
+        PracticeService
+        BoardService
+        _show_choose_opening
+        board_canvas
+        comment_label
+
+    Functions:
+    update_board():
+        Updates the board and comment label with the current state.
+    next_move():
+        Advances to the next move in the practice session.
+    prev_move():
+        Goes back to the previous move in the practice session.
+    """
     def __init__(self, master, opening, _show_choose_opening):
+        """
+        Constructs all the necessary args for the PracticeOpening object.
+
+        Args:
+            master, tk.Tk or tk.Frame
+            Opening
+            _show_choose_opening
+        """
         super().__init__(master)
         self.practice_service = PracticeService(opening)
         self.board_service = BoardService
         self._show_choose_opening = _show_choose_opening
-
 
         tk.Label(self, text=opening.name, font=("Garet", 20)).pack(pady=10)
 
@@ -25,6 +50,9 @@ class PracticeOpening(tk.Frame):
         self.update_board()
 
     def update_board(self):
+        """
+        Updates the board and comment label with the current state.
+        """
         img = self.board_service.board_to_photoimage(self.practice_service.board)
         self.board_canvas.configure(image=img)
         self.board_canvas.image = img
@@ -33,9 +61,15 @@ class PracticeOpening(tk.Frame):
         self.comment_label.config(text=comment or "")
 
     def next_move(self):
+        """
+        Advances to the next move in the practice session.
+        """
         self.practice_service.next_move()
         self.update_board()
 
     def prev_move(self):
+        """
+        Goes back to the previous move in the practice session.
+        """
         self.practice_service.previous_move()
         self.update_board()
