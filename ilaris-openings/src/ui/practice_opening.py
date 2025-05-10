@@ -43,9 +43,14 @@ class PracticeOpening(tk.Frame):
         self.comment_label = tk.Label(self, text="", font=("Garet", 14), wraplength=400)
         self.comment_label.pack(pady=10)
 
-        tk.Button(self, text="Next Move", command=self.next_move).pack(pady=10)
-        tk.Button(self, text="Previous Move", command=self.prev_move).pack(pady=10)
-        tk.Button(self, text="Back To Openings", command=self._show_choose_opening).pack(pady=10)
+        self.next_button = tk.Button(self, text="Next Move", command=self.next_move)
+        self.prev_button = tk.Button(self, text="Previous Move", command=self.prev_move)
+        self.prev_button.config(state="disabled")
+        self.menu_button = tk.Button(self, text="Back To Openings", command=self._show_choose_opening)
+        
+        self.next_button.pack(pady=10)
+        self.prev_button.pack(pady=10)
+        self.menu_button.pack(pady=10)
         
         self.update_board()
 
@@ -53,23 +58,35 @@ class PracticeOpening(tk.Frame):
         """
         Updates the board and comment label with the current state.
         """
+        if self.practice_service.move_index <= 0:
+            self.prev_button.config(state="disabled")
+        else:
+            self.prev_button.config(state="normal")
+            
+        if self.practice_service.move_index >= len(self.practice_service.moves):
+            self.next_button.config(state="disabled")
+        else:
+            self.next_button.config(state="normal")
+
+        # Update board image
         img = self.board_service.board_to_photoimage(self.practice_service.board)
         self.board_canvas.configure(image=img)
         self.board_canvas.image = img
 
+        # Update comment
         comment = self.practice_service.get_comment()
         self.comment_label.config(text=comment or "")
 
     def next_move(self):
         """
-        Advances to the next move in the practice session.
+        Advances to the next move in the practice session, if there is one.
         """
         self.practice_service.next_move()
         self.update_board()
 
     def prev_move(self):
         """
-        Goes back to the previous move in the practice session.
+        Goes back to the previous move in the practice session, if there is one.
         """
         self.practice_service.previous_move()
         self.update_board()
