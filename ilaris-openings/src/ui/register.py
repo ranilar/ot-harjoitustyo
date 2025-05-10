@@ -86,8 +86,8 @@ class Register:
 
         self._password_entry = ttk.Entry(master=self._frame)
 
-        password_label.grid(padx=5, pady=5, sticky=constants.W)
-        self._password_entry.grid(padx=5, pady=5, sticky=constants.EW)
+        password_label.grid(padx=5, pady=5)
+        self._password_entry.grid(padx=5, pady=5)
 
     def _initialize(self):
         """Creates the widgets for the login window.
@@ -110,7 +110,7 @@ class Register:
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
-        register_button.grid(padx=5, pady=5, sticky=constants.EW)
-        login_button.grid(padx=5, pady=5, sticky=constants.EW)
+        register_button.grid(padx=5, pady=5)
+        login_button.grid(padx=5, pady=5)
 
         self._hide_error()
