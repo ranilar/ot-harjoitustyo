@@ -19,7 +19,7 @@ class UserService:
             raise InvalidCredentialsError("Invalid username or password")
 
         self._user = user
-        return user
+        return True
 
     def get_current_user(self):
         return self._user
@@ -36,4 +36,4 @@ class UserService:
 
         if login:
             self._user = user
-        return user
+        return True
