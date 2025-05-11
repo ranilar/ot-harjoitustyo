@@ -9,7 +9,7 @@ def connect_database():
     return connection
 
 def close_connection(connection):
-        """Closes the database connection if it exists"""
-        if connection:
-            connection.close()
-            connection = None
+    """Closes the database connection if it exists"""
+    if connection:
+        connection.close()
+        connection = None

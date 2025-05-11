@@ -1,6 +1,9 @@
-import chess.svg, cairosvg, io, chess.pgn
-from entities.openings import Opening
+import io
 from PIL import Image, ImageTk
+import chess.svg
+import chess.pgn
+import cairosvg
+from entities.openings import Opening
 
 class BoardService:
     def __init__(self):
@@ -9,7 +12,7 @@ class BoardService:
         """
         self,
 
-    def board_to_photoimage(board, size=400):
+    def board_to_photoimage(self, board, size=400):
         """
         Converts a chess.Board object into a Tkinter PhotoImage.
 
@@ -25,7 +28,7 @@ class BoardService:
         image = Image.open(io.BytesIO(png_data))
         return ImageTk.PhotoImage(image)
 
-    def load_opening_from_pgn(file_path):
+    def load_opening_from_pgn(self, file_path):
         """
         Loads a chess opening from a PGN file, extracing its name and comments.
 

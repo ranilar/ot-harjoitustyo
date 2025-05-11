@@ -5,20 +5,20 @@ def get_user_by_row(row):
     return User(row["username"], row["password"]) if row else None
 
 class UserRepository:
-    
+
     def __init__(self, connection):
         self._connection = connection
 
     def find_by_username(self, username):
         cursor = self._connection.cursor()
-        
+
         cursor.execute(
             "SELECT * FROM users WHERE username = ?",
             (username,)
         )
-        
+
         result = cursor.fetchone()
-        
+
         return get_user_by_row(result)
 
     def create(self, user):

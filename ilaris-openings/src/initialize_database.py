@@ -10,16 +10,15 @@ def create_tables(connection):
         password TEXT NOT NULL
     );
     ''')
-    
+
     connection.commit()
 
 def drop_tables(connection):
     cursor = connection.cursor()
-    
-    cursor.execute('''DROP TABLE IF EXISTS users''')
-    
-    connection.commit()
 
+    cursor.execute('''DROP TABLE IF EXISTS users''')
+
+    connection.commit()
 
 
 def initialize_database():
