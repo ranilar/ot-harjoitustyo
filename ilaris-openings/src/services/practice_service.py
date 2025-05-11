@@ -17,6 +17,7 @@ class PracticeService:
         self.moves = list(opening.game.mainline_moves())
         self.move_index = 0
         self.board = chess.Board()
+        self.quiz_mode = False
 
     def next_move(self):
         """
@@ -45,3 +46,8 @@ class PracticeService:
         if self.move_index == 0:
             return None
         return self.opening.get_comment(self.move_index - 1)
+
+    def get_expected_move(self):
+        if self.move_index < len(self.moves):
+            return self.moves[self.move_index]
+        return None
