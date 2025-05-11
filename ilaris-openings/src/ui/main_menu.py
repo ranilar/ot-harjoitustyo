@@ -2,13 +2,14 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import os
 
+
 class Menu(tk.Frame):
     """
     The main menu UI for the Chess Opening Trainer.
     Displays a background image and a button to start training.
     """
 
-    def __init__(self, master, choose_opening, login_page):
+    def __init__(self, master, choose_opening, login_page, user_service, handle_logout):
         """
         Initializes the Menu frame.
 
@@ -25,8 +26,14 @@ class Menu(tk.Frame):
         self._choose_opening = choose_opening
         self._login_page = login_page
         self.master = master
+        self._user_service = user_service
+        self._handle_logout = handle_logout
 
         self._initialize()
+
+    def _logout(self):
+        self._user_service.logout()
+        self._handle_logout()
 
     def _initialize_window(self):
             WINDOW_WIDTH = 743
@@ -46,8 +53,8 @@ class Menu(tk.Frame):
             canvas.create_text(400, 100, text="Chess Opening Trainer", font=("Garet", 32), fill="black")
             
             start_btn = tk.Button(self, text="Start Training", font=("Garet", 16), command=self._choose_opening, padx=5, pady=5)
-            user_label = tk.Label(self, text=f"Logged in as: test", font=("Garet", 14))
-            logout_btn = tk.Button(self, text="Log out", font=("Garet", 16), command=self._user_service.logout, padx=5, pady=5)
+            user_label = tk.Label(self, text=f"Logged in as: {self._user_service.get_current_user().username}", font=("Garet", 14))
+            logout_btn = tk.Button(self, text="Log out", font=("Garet", 16), command=self._logout, padx=5, pady=5)
             canvas.create_window(400, 250, window=start_btn)
             canvas.create_window(620, 20, window=user_label)
             canvas.create_window(400, 350, window=logout_btn)

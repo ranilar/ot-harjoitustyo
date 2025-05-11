@@ -1,9 +1,9 @@
 from tkinter import ttk, StringVar, constants
-from services.user_service import UserService, UsernameExistsError
+from services.user_service import UsernameExistsError
 
 
 class Register:
-    def __init__(self, master, show_main_menu, handle_show_login):
+    def __init__(self, master, show_main_menu, handle_show_login, user_service):
         """
         UI View for registering as a new user.
         
@@ -19,7 +19,7 @@ class Register:
         self._root = master
         self._show_main_menu = show_main_menu
         self._handle_show_login = handle_show_login
-        self._register_service = UserService()
+        self._register_service = user_service
         self._frame = None
         self._username_entry = None
         self._password_entry = None
@@ -47,10 +47,16 @@ class Register:
         
         if len(username) == 0 or len(password) == 0:
             self._show_error("Username and password required.")
-
+            return
+        if len(username) >= 10 or len(username) <= 3:
+            self._show_error("Username must be between 4 and 10 characters")
+            return
+        if 3 >= len(password):
+            self._show_error("Password must be atleast 4 characters")
+            return
         try:
             self._register_service.register(username, password, login=True)
-            self._show_main_menu()
+            self._show_main_menu() 
         except UsernameExistsError:
             self._show_error("Invalid username or password")
 
@@ -105,12 +111,10 @@ class Register:
 
         register_button = ttk.Button(master=self._frame, text="Create account", command=self._register_handler)
         login_button = ttk.Button(master=self._frame, text="I already have an account", command=self._handle_show_login)
-        main_menu_button = ttk.Button(master=self._frame, text="Back To Menu", command=self._show_main_menu)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         register_button.grid(padx=5, pady=5)
         login_button.grid(padx=5, pady=5)
-        main_menu_button.grid(padx=5, pady=5)
 
         self._hide_error()

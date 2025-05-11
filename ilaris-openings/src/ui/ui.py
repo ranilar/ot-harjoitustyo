@@ -3,15 +3,20 @@ from ui.choose_opening import ChooseOpening
 from ui.practice_opening import PracticeOpening
 from ui.login import Login
 from ui.register import Register
+from services.user_service import UserService
 
 class UI:
     def __init__(self, root):
         self._root = root
         self._current_view = None
+        self._user_service = UserService()
         
     def start(self):
         self._show_login()
 
+    def _handle_logout(self):
+        self._show_login()
+        
     def _hide_current_view(self):
         if self._current_view:
             self._current_view.destroy()
@@ -19,7 +24,7 @@ class UI:
         
     def _show_main_menu(self):
         self._hide_current_view()
-        self._current_view = Menu(self._root, self._show_choose_opening, self._show_login)
+        self._current_view = Menu(self._root, self._show_choose_opening, self._show_login, self._user_service, self._handle_logout)
         self._current_view.pack(fill="both", expand=True)
         
     def _show_choose_opening(self):
@@ -37,10 +42,10 @@ class UI:
 
     def _show_login(self):
         self._hide_current_view()
-        self._current_view = Login(self._root, self._show_main_menu, self._show_register)
+        self._current_view = Login(self._root, self._show_main_menu, self._show_register, self._user_service)
         self._current_view.pack(fill="both", expand=True)
 
     def _show_register(self):
         self._hide_current_view()
-        self._current_view = Register(self._root, self._show_main_menu, self._show_login)
+        self._current_view = Register(self._root, self._show_main_menu, self._show_login, self._user_service)
         self._current_view.pack(fill="both", expand=True)

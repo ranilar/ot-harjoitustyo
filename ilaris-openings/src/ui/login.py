@@ -1,9 +1,9 @@
 from tkinter import ttk, StringVar, constants
-from services.user_service import UserService, InvalidCredentialsError
+from services.user_service import InvalidCredentialsError
 
 
 class Login:
-    def __init__(self, master, main_menu, handle_show_register):
+    def __init__(self, master, main_menu, handle_show_register, user_service):
         """
         UI View for logging in as a registered user.
         
@@ -19,7 +19,7 @@ class Login:
         self._root = master
         self._main_menu = main_menu
         self._handle_show_register = handle_show_register
-        self._login_service = UserService()
+        self._login_service = user_service
         self._frame = None
         self._username_entry = None
         self._password_entry = None
@@ -100,12 +100,10 @@ class Login:
 
         login_button = ttk.Button(master=self._frame, text="Login", command=self._login_handler)
         register_button = ttk.Button(master=self._frame, text="Create an account", command=self._handle_show_register)
-        main_menu_button = ttk.Button(master=self._frame, text="Back To Menu", command=self._main_menu)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
 
         login_button.grid(padx=5, pady=5)
         register_button.grid(padx=5, pady=5)
-        main_menu_button.grid(padx=5, pady=5)
 
         self._hide_error()
