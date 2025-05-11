@@ -34,10 +34,15 @@ poetry run invoke test
 poetry run invoke coverage-report
 ```
 
+- Pylint tarkistukset
+```bash
+poetry run invoke lint
+```
 ## Dokumentaatio
 
 -  [Vaatimusmäärittely](ilaris-openings/dokumentaatio/vaatimusmaarittely.md)
 -  [Työaikakirjanpito](ilaris-openings/dokumentaatio/tuntikirjanpito.md)
 -  [Changelog](ilaris-openings/dokumentaatio/changelog.md)
 -  [Release] (https://github.com/ranilar/ot-harjoitustyo/releases/tag/viikko5)
+-  [Arkkitehtuuri -dokumentti](ilaris-openings/dokumentaatio/arkkitehtuuri.md)
 
