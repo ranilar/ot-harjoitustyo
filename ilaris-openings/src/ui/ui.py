@@ -10,7 +10,7 @@ class UI:
         self._current_view = None
         
     def start(self):
-        self._show_main_menu()
+        self._show_login()
 
     def _hide_current_view(self):
         if self._current_view:

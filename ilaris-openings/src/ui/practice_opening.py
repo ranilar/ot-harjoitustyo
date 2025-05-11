@@ -68,12 +68,10 @@ class PracticeOpening(tk.Frame):
         else:
             self.next_button.config(state="normal")
 
-        # Update board image
         img = self.board_service.board_to_photoimage(self.practice_service.board)
         self.board_canvas.configure(image=img)
         self.board_canvas.image = img
 
-        # Update comment
         comment = self.practice_service.get_comment()
         self.comment_label.config(text=comment or "")
 

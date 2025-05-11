@@ -19,18 +19,16 @@ class UserService:
             raise InvalidCredentialsError("Invalid username or password")
 
         self._user = user
-
         return user
 
     def get_current_user(self):
-        return self._user,
+        return self._user
 
     def logout(self):
         self._user = None
 
     def register(self, username, password, login=True):
         user_exists = self._user_repository.find_by_username(username)
-
         if user_exists:
             raise UsernameExistsError("That username already exists")
 
@@ -38,5 +36,4 @@ class UserService:
 
         if login:
             self._user = user
-
         return user

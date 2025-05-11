@@ -98,8 +98,8 @@ class Login:
         self._initialize_username_field()
         self._initialize_password_field()
 
-        login_button = ttk.Button(master=self._frame, text="Login", command=self._main_menu)
-        register_button = ttk.Button(master=self._frame, text="Register", command=self._handle_show_register)
+        login_button = ttk.Button(master=self._frame, text="Login", command=self._login_handler)
+        register_button = ttk.Button(master=self._frame, text="Create an account", command=self._handle_show_register)
         main_menu_button = ttk.Button(master=self._frame, text="Back To Menu", command=self._main_menu)
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)

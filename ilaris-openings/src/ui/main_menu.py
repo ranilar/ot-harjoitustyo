@@ -44,12 +44,13 @@ class Menu(tk.Frame):
 
             canvas.create_image(0, 0, image=self.bg_photo, anchor="nw")
             canvas.create_text(400, 100, text="Chess Opening Trainer", font=("Garet", 32), fill="black")
-
+            
             start_btn = tk.Button(self, text="Start Training", font=("Garet", 16), command=self._choose_opening, padx=5, pady=5)
-            login_btn = tk.Button(self, text="Log in", font=("Garet", 16), command=self._login_page, padx=5, pady=5)
-
+            user_label = tk.Label(self, text=f"Logged in as: test", font=("Garet", 14))
+            logout_btn = tk.Button(self, text="Log out", font=("Garet", 16), command=self._user_service.logout, padx=5, pady=5)
             canvas.create_window(400, 250, window=start_btn)
-            canvas.create_window(400, 300, window=login_btn)
+            canvas.create_window(620, 20, window=user_label)
+            canvas.create_window(400, 350, window=logout_btn)
         
     def _initialize(self):
         self._initialize_window()
