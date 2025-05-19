@@ -1,5 +1,6 @@
 # Ilari's openings
-Shakkiavauksen Harjoitussovellus
+Shakkiavauksen Harjoitussovellus.
+
 Tämä sovellus auttaa käyttäjiä oppimaan ja harjoittelemaan shakkiavauksia. Käyttäjät voivat rekisteröityä, kirjautua sisään ja valita ennalta määritellyistä avauksista. Sovellus näyttää siirrot vaihe vaiheelta, sisältää kommentteja ja tarjoaa mahdollisuuden testata muistia siirtojärjestyksestä.
 
 ## Asennusohjeet
